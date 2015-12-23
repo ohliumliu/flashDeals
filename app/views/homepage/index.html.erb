@@ -40,7 +40,12 @@
 			</div>
 			<div class="leftSectionBodyContainer">
 			  <div class="leftSectionBody">
-			<p><a href="/show/deal/catalog/196/name/Automotive+%26+Parts">Automotive & Parts</a></p><p><a href="/show/deal/catalog/48/name/Computer+%26+Electronics">Computer & Electronics</a></p><p><a href="/show/deal/catalog/58/name/Department+Stores+%26Malls">Department Stores &Malls</a></p><p><a href="/show/deal/catalog/79/name/Food+%26+Drinks">Food & Drinks</a></p><p><a href="/show/deal/catalog/87/name/Gifts+%26+Flowers">Gifts & Flowers</a></p><p><a href="/show/deal/catalog/106/name/Home+%26+Garden">Home & Garden</a></p><p><a href="/show/deal/catalog/198/name/Office+Supply">Office Supply</a></p><p><a href="/show/deal/catalog/177/name/Travel+%26+Vacation">Travel & Vacation</a></p>			
+<ul>
+<% @catalogs.each do |catalog| %>
+	<li><%= catalog.name %></li>
+<% end %>
+</ul>			
+
 
 			<div class="listCatalog"><a href="/show/list-catalog">List Catalogs...</a></div>			  </div>
 			</div>
@@ -56,7 +61,15 @@
 			</div>
 			<div class="leftSectionBodyContainer">
 			  <div class="leftSectionBody">
-			<p><a href="/show/deal/merchant/1/name/Amazon">Amazon</a></p><p><a href="/show/deal/merchant/991/name/Best+Buy">Best Buy</a></p><p><a href="/show/deal/merchant/992/name/Buy.com+USA+%26+CA">Buy.com USA & CA</a></p><p><a href="/show/deal/merchant/24/name/CircuitCity.com">CircuitCity.com</a></p><p><a href="/show/deal/merchant/2/name/CompUSA.com">CompUSA.com</a></p><p><a href="/show/deal/merchant/988/name/Dell+Small+Business">Dell Small Business</a></p><p><a href="/show/deal/merchant/987/name/HP">HP</a></p><p><a href="/show/deal/merchant/985/name/MacMall">MacMall</a></p><p><a href="/show/deal/merchant/989/name/Newegg+Canada">Newegg Canada</a></p><p><a href="/show/deal/merchant/990/name/Newegg.com">Newegg.com</a></p><p><a href="/show/deal/merchant/21/name/Office+Depot">Office Depot</a></p><p><a href="/show/deal/merchant/22/name/Office+Max">Office Max</a></p><p><a href="/show/deal/merchant/980/name/Overstock.com">Overstock.com</a></p><p><a href="/show/deal/merchant/38/name/Sam%27s+Club">Sam's Club</a></p><p><a href="/show/deal/merchant/25/name/Sears.com">Sears.com</a></p><p><a href="/show/deal/merchant/26/name/Target.com">Target.com</a></p><p><a href="/show/deal/merchant/17/name/TigerDirect">TigerDirect</a></p><p><a href="/show/deal/merchant/5/name/Wal-Mart">Wal-Mart</a></p>			
+
+<ul>
+<% @merchants.each do |merchant| %>
+	<li><a href="<%= merchant.url %>"><%= merchant.name %></a></li>
+<% end %>
+</ul>			
+
+
+
 			<div class="listCatalog"><a href="/show/list-merchant">List Merchants...</a></div>			
 			  </div>
 			</div>
