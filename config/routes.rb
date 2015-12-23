@@ -1,4 +1,10 @@
 FlashDeals::Application.routes.draw do
+  resources :merchants
+
+
+  resources :catalogs
+
+
   get "homepage/index"
 
   resources :products
