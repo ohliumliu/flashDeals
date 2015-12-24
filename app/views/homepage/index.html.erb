@@ -1,8 +1,8 @@
 <div id="container">
 	<div id="header">
 				<div id="headerBanner">
-			<div><img border="0" src="/media/logo/top_banner_l.gif"/></div>
-			<div id="headerLogo"><a rel="nofollow" href="/"><img border="0" src="/media/logo/dealsoutlet.gif" alt="Deals Outlet"/></a></div>  
+			<div><%= image_tag("logo/top_banner_l.gif", border: "0") %></div>
+			<div id="headerLogo"><a rel="nofollow" href="/"><%= image_tag("logo/dealsoutlet.gif", alt: "Deals Outlet", boarder: "0")%></a></div>  
 			<div id="headerSearch">
 			  <div id="searchBox">
 				<form method="post" action="/show/search">
@@ -11,7 +11,7 @@
 				</form>
 			  </div>
 			</div>
-			<div><img border="0" src="/media/logo/top_banner_r.gif"/></div>
+			<div><%= image_tag("logo/top_banner_r.gif", border: "0") %></div>
 		</div>
 		
 		<div id="headerCategory">
