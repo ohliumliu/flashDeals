@@ -1,0 +1,15 @@
+---
+logo/dealsoutlet.gif: logo/dealsoutlet-26793e064c6c014fb475595713241365.gif
+logo/dealsoutlet/index.gif: logo/dealsoutlet-26793e064c6c014fb475595713241365.gif
+logo/top_banner_l.gif: logo/top_banner_l-fe50a4a4250ba351c5b0f9a5f76787f1.gif
+logo/top_banner_l/index.gif: logo/top_banner_l-fe50a4a4250ba351c5b0f9a5f76787f1.gif
+logo/top_banner_r.gif: logo/top_banner_r-729c398b3d4018dcc086418432e77f36.gif
+logo/top_banner_r/index.gif: logo/top_banner_r-729c398b3d4018dcc086418432e77f36.gif
+rails.png: rails-4e271d0ddbc5b564b1301352baadbba1.png
+rails/index.png: rails-4e271d0ddbc5b564b1301352baadbba1.png
+application.js: application-aece5199d472c8d65e21426eaf9a7ec2.js
+application/index.js: application-aece5199d472c8d65e21426eaf9a7ec2.js
+application.css: application-a0727197645af31897a004ae5d2ff76b.css
+application/index.css: application-a0727197645af31897a004ae5d2ff76b.css
+jquery.min.map: jquery.min-c5a89be96c8d2def857e2657b2c155c0.map
+jquery/index.min.map: jquery.min-c5a89be96c8d2def857e2657b2c155c0.map
