@@ -5,3 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Catalog.destroy_all
+Catalog.create([{name: 'Automotive & Parts', url: '#'}])
+Catalog.create([{name: 'Computer & Electronics', url: '#'}])
+Catalog.create([{name: 'Department Store & Malls', url: '#'}])
+Catalog.create({name: 'Food & Drinks', url: '#'})
+Catalog.create({name: 'Gifts & Flowers', url: '#'})
+Catalog.create({name: 'Home & Garden', url: '#'})
+Catalog.create({name: 'Office Supply', url: '#'})
+Catalog.create({name: 'Travel & Vacation', url: '#'})
+Catalog.create({name: 'Clothing & Accessories', url: '#'})
+
+
+Merchant.destroy_all
+Merchant.create({name: 'Amazon', url: 'http://www.amazon.com'})
+
