@@ -20,3 +20,5 @@ Catalog.create({name: 'Clothing & Accessories', url: '#'})
 Merchant.destroy_all
 Merchant.create({name: 'Amazon', url: 'http://www.amazon.com'})
 
+TravelSite.destroy_all
+TravelSite.create({name: 'Priceline', url: 'http://www.priceline.com'})

@@ -179,8 +179,12 @@ Settings. 6.50mm Each Round Stone. 1.00 Carat Each. Nickel Free</a></b></td></tr
 			</div>
 
 			<div class="rightSectionBodyContainer">
-			  <div class="rightSectionBody">
-			<p><a href="http://dealsoutlet.net/show/deal/merchant/981/name/Avis+Rent+A+Car">Avis Rent A Car</a></p><p><a href="http://dealsoutlet.net/show/deal/merchant/984/name/Budget+Rent+a+Car">Budget Rent a Car</a></p><p><a href="http://dealsoutlet.net/show/deal/merchant/982/name/Dollar+Rent+a+Car">Dollar Rent a Car</a></p><p><a href="http://dealsoutlet.net/show/deal/merchant/993/name/Expedia.com.au">Expedia.com.au</a></p><p><a href="http://dealsoutlet.net/show/deal/merchant/19/name/Hotwire">Hotwire</a></p><p><a href="http://dealsoutlet.net/show/deal/merchant/20/name/Orbitz">Orbitz</a></p><p><a href="http://dealsoutlet.net/show/deal/merchant/995/name/Priceline">Priceline</a></p><p><a href="http://dealsoutlet.net/show/deal/merchant/994/name/PricelineEurope.com+">PricelineEurope.com </a></p><p><a href="http://dealsoutlet.net/show/deal/merchant/983/name/Thrifty+Rent+a+Car">Thrifty Rent a Car</a></p><p><a href="http://dealsoutlet.net/show/deal/merchant/998/name/Travelocity">Travelocity</a></p><p><a href="http://dealsoutlet.net/show/deal/merchant/997/name/Travelocity+India">Travelocity India</a></p><p><a href="http://dealsoutlet.net/show/deal/merchant/996/name/Travelocity.ca">Travelocity.ca</a></p>
+		        <div class="rightSectionBody">
+			<ul>
+				<% @travel_sites.each do |site| %>
+				<li> <a href="<%= site.url %>"><%= site.name %></li>
+				<% end %>
+			</ul>
 			<div class="listCatalog"><a href="http://dealsoutlet.net/show/deal/catalog/177/name/Travel+%26+Vacation">List All...</a></div>
 			  </div>
 			</div>
