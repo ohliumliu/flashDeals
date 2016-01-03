@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20151231035025) do
+ActiveRecord::Schema.define(:version => 20160103090545) do
 
   create_table "catalogs", :force => true do |t|
     t.string   "name"
@@ -39,16 +39,18 @@ ActiveRecord::Schema.define(:version => 20151231035025) do
     t.datetime "updated_at",             :null => false
     t.string   "detail_page_url"
     t.string   "manufacturer"
-    t.float    "list_price"
+    t.integer  "list_price"
     t.string   "title"
     t.string   "small_image_url"
     t.string   "medium_image_url"
-    t.float    "price"
-    t.float    "amount_saved"
-    t.float    "percentage_saved"
+    t.integer  "price"
+    t.integer  "amount_saved"
+    t.integer  "percentage_saved"
     t.boolean  "is_supersaver_shipping"
     t.boolean  "is_prime"
     t.string   "ASIN"
+    t.integer  "merchant_id"
+    t.integer  "catalog_id"
   end
 
   create_table "travel_sites", :force => true do |t|
