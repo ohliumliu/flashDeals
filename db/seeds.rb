@@ -5,16 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+CATALOGS = [{name: 'Appliances', url: '#', browse_node_id: '2619526011'},
+            {name: 'Apps & Games', url: '#', browse_node_id: '2350150011'},
+            {name: 'Automotive', url: '#', browse_node_id: '15690151'}]
+            
 Catalog.destroy_all
-Catalog.create([{name: 'Automotive & Parts', url: '#'}])
-Catalog.create([{name: 'Computer & Electronics', url: '#'}])
-Catalog.create([{name: 'Department Store & Malls', url: '#'}])
-Catalog.create({name: 'Food & Drinks', url: '#'})
-Catalog.create({name: 'Gifts & Flowers', url: '#'})
-Catalog.create({name: 'Home & Garden', url: '#'})
-Catalog.create({name: 'Office Supply', url: '#'})
-Catalog.create({name: 'Travel & Vacation', url: '#'})
-Catalog.create({name: 'Clothing & Accessories', url: '#'})
+CATALOGS.each do |catalog|
+  new_catalog = Catalog.new({name: catalog[:name], url: catalog[:url], browse_node_id: catalog[:browse_node_id]})
+  new_catalog.save
+end
+
 
 
 Merchant.destroy_all
