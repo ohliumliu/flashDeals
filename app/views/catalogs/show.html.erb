@@ -1,15 +1,232 @@
-<p id="notice"><%= notice %></p>
+<div id="container">
+	<div id="header">
+				<div id="headerBanner">
+			<!--<div><%= image_tag("http://dealsoutlet.net/media/logo/top_banner_l.gif", border: "0") %></div>-->
+			<div><img border="0" src="http://dealsoutlet.net/media/logo/top_banner_l.gif"/></div>
+			<div id="headerLogo"><a rel="nofollow" href="http://dealsoutlet.net/"><%= image_tag("http://dealsoutlet.net/media/logo/dealsoutlet.gif", alt: "Deals Outlet", boarder: "0")%></a></div>  
+			<div id="headerSearch">
+			  <div id="searchBox">
+				<form method="post" action="/show/search">
+				<input id="search" type="text" value="Search deals" name="search" onblur="if(this.value=='') { this.value='Search deals';}" onfocus="if(this.value=='Search deals') this.value='';"/>
+				<input type="submit" value="Search" />
+				</form>
+			  </div>
+			</div>
+			<div><%= image_tag("logo/top_banner_r.gif", border: "0") %></div>
+		</div>
+		
+		<div id="headerCategory">
+			<div id="topMenuShim">&nbsp;</div>
+			<div><img border="0" src="http://dealsoutlet.net/media/logo/top_menu_l24.png"/></div>
+			<div class="topMenu"><img class="bulletYellow" border="0" src="http://dealsoutlet.net/media/logo/bullet_yellow.png"/><a href="http://dealsoutlet.net/show/deal/merchant/1/name/Amazon">Amazon</a></div>
+			<div class="topMenu"><img class="bulletYellow" border="0" src="http://dealsoutlet.net/media/logo/bullet_yellow.png"/><a href="http://dealsoutlet.net/show/deal/merchant/995/name/Priceline">Priceline</a></div>
+			<div class="topMenu"><img class="bulletYellow" border="0" src="http://dealsoutlet.net/media/logo/bullet_yellow.png"/><a href="http://dealsoutlet.net/show/deal/merchant/20/name/Orbitz">Orbitz</a></div>
+			<div class="topMenu"><img class="bulletYellow" border="0" src="http://dealsoutlet.net/media/logo/bullet_yellow.png"/><a href="http://dealsoutlet.net/show/deal/merchant/998/name/Travelocity">Travelocity</a></div>
+			<div><img border="0" src="http://dealsoutlet.net/media/logo/top_menu_r24.png"/></div>
+		</div>
+	</div>	<!-- end #header -->
+	
+				<h1>Deals &amp; Coupons 
+					
+								 	for "Amazon"
+								</h1>	
+	<div id="content">
+			<div id="contentLeft">
+							<div class="leftSectionHead">
+				<div><img border="0" src="http://dealsoutlet.net/media/logo/category_tab_l.png"/></div>
+				<div class="leftSectionTitle">
+					<div class="sectionTitleText">Hot Catalog</div>
+				</div>
+				<div><img border="0" src="http://dealsoutlet.net/media/logo/category_tab_r.png"/></div>
+			</div>
+			<div class="leftSectionBodyContainer">
+			  <div class="leftSectionBody">
+<ul>
+<% @catalogs.each do |catalog| %>
+	<li><a href=<%= catalog_path(catalog) %>><%= catalog.name %></li>
+<% end %>
+</ul>			
 
-<p>
-  <b>Name:</b>
-  <%= @catalog.name %>
-</p>
 
-<p>
-  <b>Url:</b>
-  <%= @catalog.url %>
-</p>
+			<div class="listCatalog"><a href="http://dealsoutlet.net/show/list-catalog">List Catalogs...</a></div>			  </div>
+			</div>
+			
+			<div class="horizontalSpace20">&nbsp;</div>
+			
+			<div class="leftSectionHead">
+				<div><img border="0" src="http://dealsoutlet.net/media/logo/category_tab_l.png"/></div>
+				<div class="leftSectionTitle">
+					<div class="sectionTitleText">Hot Merchant</div>
+				</div>
+				<div><img border="0" src="http://dealsoutlet.net/media/logo/category_tab_r.png"/></div>
+			</div>
+			<div class="leftSectionBodyContainer">
+			  <div class="leftSectionBody">
+
+<ul>
+<% @merchants.each do |merchant| %>
+	<li><a href="<%= merchant.url %>"><%= merchant.name %></a></li>
+<% end %>
+</ul>			
 
 
-<%= link_to 'Edit', edit_catalog_path(@catalog) %> |
-<%= link_to 'Back', catalogs_path %>
+
+			<div class="listCatalog"><a href="http://dealsoutlet.net/show/list-merchant">List Merchants...</a></div>			
+			  </div>
+			</div>
+
+			<div class="horizontalSpace20">&nbsp;</div>
+
+			</div>
+			
+			<div class="verticalSpace20">&nbsp;</div>
+			
+			<div id="contentCenter"> 
+				<div class="centerSectionHead">
+				</div> 
+											<div class="dealList"><p class="moreDeals">
+							  <a href="http://dealsoutlet.net/show/deal/plink/1344852" target="_blank" rel="nofollow"><strong>Shop "Amazon" Now</strong></a></p></div><div class="space"></div>
+
+<% @products_catalog.each do |product| %>
+<div class="dealList">
+    <span class="productListImage">
+	<a href=<%= product.detail_page_url %> target="_blank" rel="nofollow">
+	<img border="0" src= <%= product.small_image_url %> />
+        </a>
+    </span>
+<span>
+    <table class="product">
+        <tbody>
+	    <tr>
+		<td colspan=2>
+			<b class="productListName">
+				<a href=<%= product.detail_page_url %>  target="_blank" rel="nofollow"><%= product.title %></a>
+			</b>
+		</td>
+            </tr>
+  	    <tr>
+		<td class="priceLabel">List Price:</td>
+		<td class="listPrice">$<%= product.list_price/100.0 %></td>
+	    </tr>
+	    <tr>
+		<td class="priceLabel">Price:</td>
+		<td><b class="salePrice">$<%= product.price/100.0 %></b></td>
+	    </tr>
+	    <tr>
+		<td class="priceLabel">You Save:</td>
+	   	<td class="savePrice">$<%= (product.list_price - product.price)/100.0 %> (<%= product.percentage_saved %>%)</td>
+	    </tr>
+	</tbody>
+    </table>
+</span>
+<p class="moreDeals">&nbsp;</p>
+</div>
+<% end %>
+</div>
+			<div class="verticalSpace20">&nbsp;</div>
+        			<div id="contentRight">
+									<div class="signupboxTopHorizontal">
+				<div><img border="0" src="http://dealsoutlet.net/media/logo/signupbox_top_l.png"/></div>
+				<div id="signupboxTop">Setup Deals Alerts
+				</div>
+				<div><img border="0" src="http://dealsoutlet.net/media/logo/signupbox_top_r.png"/></div>
+			</div>
+			<div class="signupboxContainer">
+			  <div id="signupboxBody">
+			    <form action="/member/login" method="post">
+			  	<div class="signinText">Username:</div>
+			  	<div><input class="signinInput" name="username" type="text"/></div>
+			  	<div class="signinText">Password:</div>
+			  	<div><input class="signinInput" name="password" type="password"/></div>
+			  	<div id="signinButtons">
+			  	<input id="signinButton" type="submit" value="Signin!"/>
+			  	<a href="http://dealsoutlet.net/member/register"><input id="signupButton" type="button" value="Signup!"/></a>
+				<input type="hidden" name="check" value="1"/>
+			  	</form>
+			  	</div>
+			  </div>
+			</div>
+			
+			<div class="signupboxHorizontal">
+				<div><img border="0" src="http://dealsoutlet.net/media/logo/signupbox_bottom_l.png"/></div>
+				<div id="signupboxBottom"></div>
+				<div><img border="0" src="http://dealsoutlet.net/media/logo/signupbox_bottom_r.png"/></div>
+			</div>
+					
+			<div class="horizontalSpace20">&nbsp;</div>
+
+			<div class="rightSectionHead">
+				<div><img border="0" src="http://dealsoutlet.net/media/logo/category_tab_l.png"/></div>
+				<div class="rightSectionTitle">
+					<div class="sectionTitleText">Travel</div>
+				</div>
+				<div><img border="0" src="http://dealsoutlet.net/media/logo/category_tab_r.png"/></div>
+			</div>
+
+			<div class="rightSectionBodyContainer">
+		        <div class="rightSectionBody">
+			<ul>
+				<% @travel_sites.each do |site| %>
+				<li> <a href="<%= site.url %>"><%= site.name %></li>
+				<% end %>
+			</ul>
+			<div class="listCatalog"><a href="http://dealsoutlet.net/show/deal/catalog/177/name/Travel+%26+Vacation">List All...</a></div>
+			  </div>
+			</div>
+
+			<div class="horizontalSpace20">&nbsp;</div>
+					
+
+			<div class="rightSectionHead">
+				<div><img border="0" src="http://dealsoutlet.net/media/logo/category_tab_l.png"/></div>
+				<div class="rightSectionTitle">
+					<div class="sectionTitleText">Submit a Deal</div>
+				</div>
+				<div><img border="0" src="http://dealsoutlet.net/media/logo/category_tab_r.png"/></div>
+			</div>
+
+			<div class="rightSectionBodyContainer">
+			  <div class="rightSectionBody">
+			  	<div id="submitDealReturnText"></div>
+				<textarea id="submitDeal" cols="20" rows="3" name="submitDeal"></textarea>				
+				<input type="button" value="Submit" onclick="submitDeal()"/>
+			  </div>
+			</div>
+			<div class="horizontalSpace20">&nbsp;</div>
+
+
+
+						</div>
+		</div>
+	
+    <div id="footer">
+				<p>&nbsp;</p>
+		<p>
+		 <a href="http://dealsoutlet.net/site/aboutus/">About us</a> <a href="http://dealsoutlet.net/site/contactus/">Contact us</a> 
+		 <a href="http://dealsoutlet.net/site/sitemap/">Sitemap</a> 
+		 <a href="http://dealsoutlet.nethttp://apps.facebook.com/dealsoutlet_net/">Find us on Facebook</a> 
+		 <a href="http://dealsoutlet.nethttp://twitter.com/DealsOutlet">Follow us on Twitter</a> 
+		 <a href="http://dealsoutlet.net/xml/rss2/kw/top" title="Subscribe Feed">RSS</a>
+		</p> 
+		<p id="copyRight">
+		 &copy; 2004-2009 The World's Gate, Inc. All Rights Reserved. 
+		 <a href="http://dealsoutlet.net/site/privacy/">Privacy Policy</a> <a href="http://dealsoutlet.net/site/tos/">Terms of Use</a> 
+		</p> 
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-11366110-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+    </div><!-- end #footer -->
+    
+</div><!-- end #container -->

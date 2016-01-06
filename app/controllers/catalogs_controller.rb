@@ -13,8 +13,11 @@ class CatalogsController < ApplicationController
   # GET /catalogs/1
   # GET /catalogs/1.json
   def show
+    @travel_sites = TravelSite.all
+    @merchants = Merchant.all
+    @catalogs = Catalog.all
     @catalog = Catalog.find(params[:id])
-
+    @products_catalog = Product.where(catalog_id: params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @catalog }
