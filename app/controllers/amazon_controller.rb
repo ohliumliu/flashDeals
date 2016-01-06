@@ -7,7 +7,7 @@ class AmazonController #< AdminController
   require 'base64' 
   require 'logger' 
   # Your AWS Secret Key corresponding to the above ID, as taken from the AWS Your Account page
-  AWS_SECRET_KEY = "CrB1mz11WhzwyJDBKt8+FTEAhvnEzLVztoJw8V9n"
+  AWS_SECRET_KEY = "Wf8QQfudYwtpnUgozqR2VfUpOzet/tEo+1vGVcag"
 
   # The region you are interested in
   ENDPOINT = "webservices.amazon.com"
@@ -15,6 +15,8 @@ class AmazonController #< AdminController
   REQUEST_URI = "/onca/xml"
   
   def import
+    Product.destroy_all
+    Merchant.destroy_all
     Catalog.all.each do |catalog|
       args = {
         "Operation" => "BrowseNodeLookup",
@@ -67,8 +69,8 @@ class AmazonController #< AdminController
   def get_url(args)
     request_params = {
       "Service" => "AWSECommerceService",
-      "AWSAccessKeyId" => "AKIAJJEAFBQ3SMGC47LA",
-      "AssociateTag" => "AKIAJJEAFBQ3SMGC47LA",
+      "AWSAccessKeyId" => "AKIAJOWJPSCFZWOSUDAQ",
+      "AssociateTag" => "dealsoutlet04-20",
     }
     request_params=request_params.merge(args)
     

@@ -85,8 +85,45 @@
 				<div class="centerSectionHead">
 				</div> 
 											<div class="dealList"><p class="moreDeals">
-							  <a href="http://dealsoutlet.net/show/deal/plink/1344852" target="_blank" rel="nofollow"><strong>Shop "Amazon" Now</strong></a></p></div><div class="space"></div><div class="dealList"><span class="productListImage"><a href="http://dealsoutlet.net/show/deal/plink/1344852" target="_blank" rel="nofollow">
-						<img border="0" src="http://ecx.images-amazon.com/images/I/51q%2Bf1CqjKL._SL160_.jpg" /></a></span><span><table class="product"><tbody><tr><td colspan=2><b class="productListName"><a href="http://dealsoutlet.net/show/deal/plink/1344852" target="_blank" rel="nofollow">FordEx Group 300lm Mini Cree Led Flashlight Torch Adjustable Focus Zoom Light Lamp</a></b></td></tr><tr><td class="priceLabel">List Price:</td><td class="listPrice">$35.48</td></tr><tr><td class="priceLabel">Price:</td><td><b class="salePrice">$4.20</b></td></tr><tr><td class="priceLabel">You Save:</td><td class="savePrice">$31.28 (88%)</td></tr></tbody></table></span><p class="moreDeals">&nbsp;</p></div><div class="space"></div><div class="dealList"><span class="productListImage"><a href="http://dealsoutlet.net/show/deal/plink/1344737" target="_blank" rel="nofollow">
+							  <a href="http://dealsoutlet.net/show/deal/plink/1344852" target="_blank" rel="nofollow"><strong>Shop "Amazon" Now</strong></a></p></div><div class="space"></div>
+
+<% @products.each do |product| %>
+<div class="dealList">
+    <span class="productListImage">
+	<a href=<%= product.detail_page_url %> target="_blank" rel="nofollow">
+	<img border="0" src= <%= product.small_image_url %> />
+        </a>
+    </span>
+<span>
+    <table class="product">
+        <tbody>
+	    <tr>
+		<td colspan=2>
+			<b class="productListName">
+				<a href=<%= product.detail_page_url %>  target="_blank" rel="nofollow"><%= product.title %></a>
+			</b>
+		</td>
+            </tr>
+  	    <tr>
+		<td class="priceLabel">List Price:</td>
+		<td class="listPrice">$<%= product.list_price/100.0 %></td>
+	    </tr>
+	    <tr>
+		<td class="priceLabel">Price:</td>
+		<td><b class="salePrice">$<%= product.price/100.0 %></b></td>
+	    </tr>
+	    <tr>
+		<td class="priceLabel">You Save:</td>
+	   	<td class="savePrice">$<%= (product.list_price - product.price)/100.0 %> (<%= product.percentage_saved %>%)</td>
+	    </tr>
+	</tbody>
+    </table>
+</span>
+<p class="moreDeals">&nbsp;</p>
+</div>
+<% end %>
+<div class="space"></div>
+<div class="dealList"><span class="productListImage"><a href="http://dealsoutlet.net/show/deal/plink/1344737" target="_blank" rel="nofollow">
 						<img border="0" src="http://ecx.images-amazon.com/images/I/313hQyG2JTL._SL160_.jpg" /></a></span><span><table class="product"><tbody><tr><td colspan=2><b class="productListName"><a href="http://dealsoutlet.net/show/deal/plink/1344737" target="_blank" rel="nofollow">Dotting 5 X 2 Way Marbleizing Dotting Pen Set for Nail Art Manicure Pedicure, 4 Ounce</a></b></td></tr><tr><td class="priceLabel">List Price:</td><td class="listPrice">$14.99</td></tr><tr><td class="priceLabel">Price:</td><td><b class="salePrice">$0.44</b></td></tr><tr><td class="priceLabel">You Save:</td><td class="savePrice">$14.55 (97%)</td></tr></tbody></table></span><p class="moreDeals">&nbsp;</p></div><div class="space"></div><div class="dealList"><span class="productListImage"><a href="http://dealsoutlet.net/show/deal/plink/1345011" target="_blank" rel="nofollow">
 						<img border="0" src="http://ecx.images-amazon.com/images/I/31JWOAoyJaL._SL160_.jpg" /></a></span><span><table class="product"><tbody><tr><td colspan=2><b class="productListName"><a href="http://dealsoutlet.net/show/deal/plink/1345011" target="_blank" rel="nofollow">iPhone 5 USB Cable, Car Charger 5V 1A White with AC Wall Charger Adapter for iPhone 5</a></b></td></tr><tr><td class="priceLabel">List Price:</td><td class="listPrice">$24.99</td></tr><tr><td class="priceLabel">Price:</td><td><b class="salePrice">$1.60</b></td></tr><tr><td class="priceLabel">You Save:</td><td class="savePrice">$23.39 (94%)</td></tr></tbody></table></span><p class="moreDeals">&nbsp;</p></div><div class="space"></div><div class="dealList"><span class="productListImage"><a href="http://dealsoutlet.net/show/deal/plink/1344974" target="_blank" rel="nofollow">
 						<img border="0" src="http://ecx.images-amazon.com/images/I/51VAhTxgr1L._SL160_.jpg" /></a></span><span><table class="product"><tbody><tr><td colspan=2><b class="productListName"><a href="http://dealsoutlet.net/show/deal/plink/1344974" target="_blank" rel="nofollow">Vintage, Retro Colorful Crystal Owl Pendant and Chain with Antiqued Bronze/Brass Finish</a></b></td></tr><tr><td class="priceLabel">List Price:</td><td class="listPrice">$34.99</td></tr><tr><td class="priceLabel">Price:</td><td><b class="salePrice">$0.79</b></td></tr><tr><td class="priceLabel">You Save:</td><td class="savePrice">$34.20 (98%)</td></tr></tbody></table></span><p class="moreDeals">&nbsp;</p></div><div class="space"></div><div class="dealList"><span class="productListImage"><a href="http://dealsoutlet.net/show/deal/plink/1344999" target="_blank" rel="nofollow">

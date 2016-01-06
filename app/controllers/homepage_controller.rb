@@ -3,5 +3,6 @@ class HomepageController < ApplicationController
     @catalogs = Catalog.all
     @merchants = Merchant.all
     @travel_sites = TravelSite.all
+    @products = Product.all
   end
 end
