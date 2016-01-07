@@ -35,8 +35,6 @@ class AmazonController #< AdminController
         }
         begin
           item_response = Nokogiri::XML(open(get_url(args)))
-          #merchant = Merchant.find_or_create_by(name: item_response.css("//Manufacturer").first.content)
-          merchant = Merchant.where(name: item_response.css("//Manufacturer").first.content).first_or_create(name: item_response.css("//Manufacturer").first.content)
           product = Product.new
           product.detail_page_url=item_response.at_css("//DetailPageURL").content
           product.small_image_url=item_response.css("//SmallImage//URL").first.content
@@ -53,6 +51,8 @@ class AmazonController #< AdminController
           product.ASIN= item.content
 
           product.save
+          #merchant = Merchant.find_or_create_by(name: item_response.css("//Manufacturer").first.content)
+          merchant = Merchant.where(name: item_response.css("//Manufacturer").first.content).first_or_create(name: item_response.css("//Manufacturer").first.content)
         rescue NoMethodError => e
           puts "probably xml parser returns a nilclass, #{e.message}"
           #logger.error("probably xml parser returns a nilclass, #{e.message}")
