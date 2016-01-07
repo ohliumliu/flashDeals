@@ -7,7 +7,7 @@ class AmazonController #< AdminController
   require 'base64' 
   require 'logger' 
   # Your AWS Secret Key corresponding to the above ID, as taken from the AWS Your Account page
-  AWS_SECRET_KEY = "Wf8QQfudYwtpnUgozqR2VfUpOzet/tEo+1vGVcag"
+  AWS_SECRET_KEY = ""
 
   # The region you are interested in
   ENDPOINT = "webservices.amazon.com"
@@ -70,7 +70,7 @@ class AmazonController #< AdminController
   def get_url(args)
     request_params = {
       "Service" => "AWSECommerceService",
-      "AWSAccessKeyId" => "AKIAJOWJPSCFZWOSUDAQ",
+      "AWSAccessKeyId" => "",
       "AssociateTag" => "dealsoutlet04-20",
     }
     request_params=request_params.merge(args)
