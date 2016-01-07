@@ -15,14 +15,16 @@
 </head>
 <body>
 <div id="container">
-<%= render 'layouts/header' %>
-
-
-<%= yield %>
-
-<%= render 'layouts/footer' %>
-
+    <%= render 'layouts/header' %>
+    <h1>Deals &amp; Coupons for "Amazon" </h1>	
+    <div id="content">
+	<%= render 'layouts/left' %>
+        <%= render 'layouts/center' %>
+	<%= render 'layouts/right' %>
+    </div>
+    <%= render 'layouts/footer' %>
 </div>
+
 
 
 </body>
