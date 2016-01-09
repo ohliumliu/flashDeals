@@ -43,3 +43,4 @@ gem 'nokogiri'
 
 # pagination
 gem 'kaminari'
+

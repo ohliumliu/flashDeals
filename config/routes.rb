@@ -1,15 +1,18 @@
 FlashDeals::Application.routes.draw do
-  resources :merchants
+  #resources :merchants
 
 
-  resources :catalogs
+  #resources :catalogs
 
 
-  get "homepage/index"
+  #get "homepage/index"
 
-  resources :products
+  #resources :products
 
 
+  root to: 'Show#show'
+  get 'catalogs/:catalog_id' => 'Show#show'
+  get 'merchants/:merchant_id' => 'Show#show'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -59,7 +62,6 @@ FlashDeals::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root to: 'homepage#index'
 
   # See how all your routes lay out with "rake routes"
 

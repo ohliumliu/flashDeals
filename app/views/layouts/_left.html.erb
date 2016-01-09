@@ -10,7 +10,7 @@
 			  <div class="leftSectionBody">
 <ul>
 <% @catalogs.each do |catalog| %>
-	<li><a href=<%= catalog_path(catalog) %>><%= catalog.name %></li>
+	<li><a href="/catalogs/<%= catalog.id %>"><%= catalog.name %></li>
 <% end %>
 </ul>
 
@@ -32,7 +32,7 @@
 
 <ul>
 <% @merchants.each do |merchant| %>
-	<li><a href="<%= merchant_path(merchant) %>"><%= merchant.name %></a></li>
+	<li><a href="/merchants/<%= merchant.id %>"><%= merchant.name %></a></li>
 <% end %>
 </ul>			
 
