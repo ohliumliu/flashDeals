@@ -13,10 +13,7 @@ class MerchantsController < ApplicationController
   # GET /merchants/1
   # GET /merchants/1.json
   def show
-    @travel_sites = TravelSite.all
-    @merchants = Merchant.all
-    @catalogs = Catalog.all
-    @products = Product.where(merchant_id: params[:id]).order('percentage_saved DESC')
+    @products = Product.where(merchant_id: params[:id]).order('percentage_saved DESC').page(params[:page]).per(5)
     @merchant = Merchant.find(params[:id])
 
     respond_to do |format|
