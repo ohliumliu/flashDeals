@@ -13,6 +13,8 @@ FlashDeals::Application.routes.draw do
   root to: 'Show#show'
   get 'catalogs/:catalog_id' => 'Show#show'
   get 'merchants/:merchant_id' => 'Show#show'
+  get 'catalogs' => 'Catalogs#index'
+  get 'merchants' => 'Merchants#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
