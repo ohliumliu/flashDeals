@@ -17,7 +17,7 @@ class CatalogsController < ApplicationController
     @merchants = Merchant.all
     @catalogs = Catalog.all
     @catalog = Catalog.find(params[:id])
-    @products = Product.where(catalog_id: params[:id]).order('percentage_saved DESC')
+    @products = Product.where(catalog_id: params[:id]).order('percentage_saved DESC').page(params[:page]).per(5)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @catalog }

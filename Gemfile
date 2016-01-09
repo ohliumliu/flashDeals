@@ -41,3 +41,5 @@ gem 'jquery-rails'
 # xml parser
 gem 'nokogiri'
 
+# pagination
+gem 'kaminari'

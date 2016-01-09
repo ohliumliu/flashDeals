@@ -481,3 +481,8 @@ img {
 	color:#999999;
 	font-size:11px;
 }
+
+.pagination{
+	text-align: center;
+	font-size: 15px;
+}
