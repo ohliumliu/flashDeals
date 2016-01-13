@@ -1,4 +1,6 @@
 FlashDeals::Application.routes.draw do
+
+
   #resources :merchants
 
 
@@ -15,6 +17,7 @@ FlashDeals::Application.routes.draw do
   get 'merchants/:merchant_id' => 'Show#show'
   get 'catalogs' => 'Catalogs#index'
   get 'merchants' => 'Merchants#index'
+  post 'coupons/submit_deal(.:format)' => 'Coupons#submit_deal'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

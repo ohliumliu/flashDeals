@@ -84,10 +84,13 @@
 		}
 		 $.ajax({
 			 type: "POST",
-			 url: "/coupon/submit-deal",
+			 beforeSend: function(xhr)  {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+			 url: "/coupons/submit_deal.json",
 			 data: "submitDeal=" + $("#submitDeal").val(),
+			 dataType: 'text',
 			 success: function(data){
 			 	$("#submitDealReturnText").html(data);
+		alert("deals added!");
 			 }
 		}); 		
 	}
