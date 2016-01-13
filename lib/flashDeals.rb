@@ -6,6 +6,14 @@
   require 'base64' 
   require 'logger' 
   class AmazonApi
+    # Your AWS Secret Key corresponding to the above ID, as taken from the AWS Your Account page
+    AWS_SECRET_KEY = "Wf8QQfudYwtpnUgozqR2VfUpOzet/tEo+1vGVcag"
+
+    # The region you are interested in
+    ENDPOINT = "webservices.amazon.com"
+
+    REQUEST_URI = "/onca/xml"
+ 
     def initialize(http_client, xml_parser)
       @http_client = http_client
       @xml_parser = xml_parser
@@ -31,19 +39,11 @@
       url = get_url(args)
       @xml_parser.parse_item_lookup(@http_client.get(url))
     end
-	# Your AWS Secret Key corresponding to the above ID, as taken from the AWS Your Account page
-    AWS_SECRET_KEY = "Wf8QQfudYwtpnUgozqR2VfUpOzet#/#tEo+1vGVcag"
-
-    # The region you are interested in
-    ENDPOINT = "webservices.amazon.com"
-
-    REQUEST_URI = "/onca/xml"
- 
-
+   
     def get_url(args)
       request_params = {
         "Service" => "AWSECommerceService",
-        "AWSAccessKeyId" => "AKIAJ#O#WJPSCFZWOSUDAQ",
+        "AWSAccessKeyId" => "AKIAJOWJPSCFZWOSUDAQ",
         "AssociateTag" => "dealsoutlet04-20",
       }
       request_params=request_params.merge(args)
