@@ -8,4 +8,12 @@ class ShowController < ApplicationController
       @products = Product.order('percentage_saved DESC')
     end
   end
+
+  def list_catalogs
+    @catalogs = Catalog.all
+  end
+
+  def list_merchants
+    @merchants = Merchant.all
+  end
 end

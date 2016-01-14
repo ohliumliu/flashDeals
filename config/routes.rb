@@ -15,8 +15,10 @@ FlashDeals::Application.routes.draw do
   root to: 'Show#show'
   get 'catalogs/:catalog_id' => 'Show#show'
   get 'merchants/:merchant_id' => 'Show#show'
-  get 'catalogs' => 'Catalogs#index'
-  get 'merchants' => 'Merchants#index'
+  get 'catalogs' => 'Show#list_catalogs'
+  #get 'catalogs' => 'Catalogs#index' reverve catalogs controller for admin tasks
+  get 'merchants' => 'Show#list_merchants'
+  #get 'merchants' => 'Merchants#index'
   post 'coupons/submit_deal(.:format)' => 'Coupons#submit_deal'
   # The priority is based upon order of creation:
   # first created -> highest priority.
