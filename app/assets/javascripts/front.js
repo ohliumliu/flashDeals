@@ -63,6 +63,26 @@
 		}); 		
 	}
 
+	function searchDeals() {
+		if (trim($("#search").val())=="") {
+			alert("Please enter something to search for");
+			return 0;
+		}
+		 $.ajax({
+			 type: "GET",
+			 beforeSend: function(xhr)  {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+			 url: "/show/search.html",
+			 data: "search=" + $("#search").val(),
+			 //dataType: "text",
+			 success: function(data){
+//			 	$("#inputAlert").html("");
+			 	alert("searching");
+				$("#contentCenter").html(data);
+			 }
+		}); 		
+	}
+
+
 	function trim(str, chars) {
 		return ltrim(rtrim(str, chars), chars);
 	}
