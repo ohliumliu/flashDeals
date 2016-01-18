@@ -1,8 +1,10 @@
 class ShowController < ApplicationController
   def show
-    initialize_lists
     if params[:catalog_id]
       @products = Product.where(catalog_id: params[:catalog_id]).order('percentage_saved DESC')
+      respond_to do |format|
+        format.js
+      end
     elsif params[:merchant_id]
       @products = Product.where(merchant_id: params[:merchant_id]).order('percentage_saved DESC')
     elsif params[:search]
@@ -28,9 +30,4 @@ class ShowController < ApplicationController
     @merchants = Merchant.all
   end
 
-  def initialize_lists
-    @merchants = Merchant.all
-    @catalogs = Catalog.all
-    @travel_sites = TravelSite.all
-  end
 end
