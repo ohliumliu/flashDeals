@@ -14,7 +14,6 @@ class ShowController < ApplicationController
         #format.html {render :partial => "show", :locals => {:products => @products}} # index.html.erb
         #format.html {render partial: "show", locals: {products: @products}}# index.html.erb
         #format.html {render partial: "show", object: @products}# index.html.erb
-        format.json {render text: "Thank you for submitting a deal"}
       end
 
     else

@@ -6,7 +6,7 @@ class CouponsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render text: "Thank you for submitting a deal" }
+      format.text { render text: "Thank you for submitting a deal" }
     end
 
   end

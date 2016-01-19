@@ -105,9 +105,9 @@
 		 $.ajax({
 			 type: "POST",
 			 beforeSend: function(xhr)  {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-			 url: "/coupons/submit_deal.json",
+			 url: "/coupons/submit_deal.text",
 			 data: "submitDeal=" + $("#submitDeal").val(),
-			 dataType: 'text',
+			 //dataType: 'text',
 			 success: function(data){
 			 	$("#submitDealReturnText").html(data);
 		alert("deals added!");
