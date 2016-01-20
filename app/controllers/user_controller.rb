@@ -15,6 +15,14 @@ class UserController < ApplicationController
       redirect_to "/user/signup", :flash => {:error => "Password should match"}
     end
   end
+
   def signin
+    user = User.where(:name => params[:username]).first
+    if Digest::SHA1.hexdigest(params[:password]) == user.password
+      flash[:success] = "you are in"
+    else
+      redirect_to "/user/signup", :flash => {:error => "I don't know you"}
+    end
+       
   end
 end
