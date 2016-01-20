@@ -20,6 +20,7 @@ class UserController < ApplicationController
     user = User.where(:name => params[:username]).first
     if Digest::SHA1.hexdigest(params[:password]) == user.password
       flash[:success] = "you are in"
+      @products = Product.all
     else
       redirect_to "/user/signup", :flash => {:error => "I don't know you"}
     end
