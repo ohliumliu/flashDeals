@@ -4,7 +4,13 @@
 			  </div>
 			  <div class="horizontalSpace5">&nbsp;</div>
 				<div id="message"><font color="red"></font></div>
-				
+			
+
+<% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+
+	
       				<div class="login">
 					<form id="registerform" action="/user/signup" method="post">
 					<p>

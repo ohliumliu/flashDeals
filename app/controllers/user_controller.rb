@@ -4,10 +4,16 @@ class UserController < ApplicationController
 
   def create
     user = User.new
-    user[:name] = params[:username]
-    user[:password] = params[:password]
-    user.save
-    flash[:success] = "Thank you for registration"
+    if params[:password] == params[:passwordRepeat]
+      user[:name] = params[:username]
+      user[:password] = params[:password]
+      user[:email] = params[:email]
+      user.save
+      flash[:success] = "Thank you for registration"
+    else
+      #flash[:error] = "Password should match"
+      redirect_to "/user/signup", :flash => {:error => "Password should match"}
+    end
   end
   def signin
   end
