@@ -6,7 +6,7 @@ class UserController < ApplicationController
     user = User.new
     if params[:password] == params[:passwordRepeat]
       user[:name] = params[:username]
-      user[:password] = params[:password]
+      user[:password] = Digest::SHA1.hexdigest params[:password]
       user[:email] = params[:email]
       user.save
       flash[:success] = "Thank you for registration"
