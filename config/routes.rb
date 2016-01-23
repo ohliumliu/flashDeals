@@ -5,6 +5,7 @@ FlashDeals::Application.routes.draw do
   post "user/signup" => "user#create"
   post "user/signin" # this is equivalent to the following?
   		     # post 'users/signup' => 'User#signup'
+  get "user/signout" 
 
   #resources :merchants
 

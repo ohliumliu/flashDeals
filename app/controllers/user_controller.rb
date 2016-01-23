@@ -21,9 +21,17 @@ class UserController < ApplicationController
     if (@user = User.where(:name => params[:username]).first) && Digest::SHA1.hexdigest(params[:password]) == @user.password
       #flash[:success] = "you are in"
       @products = Product.all
+      session[:user_id] = @user.id
     else
       redirect_to action: "signup", :flash => {:error => "I don't know you"} 
     end
        
+  end
+
+  def signout
+    if session[:user_id]
+      session[:user_id] = nil
+    end
+    redirect_to root_path
   end
 end
