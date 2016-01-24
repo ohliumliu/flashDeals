@@ -10,6 +10,7 @@ class UserController < ApplicationController
       user[:email] = params[:email]
       user.save
       flash[:success] = "Thank you for registration"
+      UserMailer.welcome_email(user).deliver
     else
       #flash[:error] = "Password should match"
       redirect_to "/user/signup", :flash => {:error => "Password should match"}
