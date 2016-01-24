@@ -115,3 +115,26 @@
 		}); 		
 	}
 
+	function signin(){
+		 alert("signin");
+		 $.ajax({
+			 type: "POST",
+			 beforeSend: function(xhr)  {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+			 url: "/user/signin",
+			 data: {
+				"username": $("#signupboxBody > form:nth-child(1) > div:nth-child(2) > input:nth-child(1)").val(),
+				"password": $("#signinpassword").val(),
+				//"password": "test",
+				//"password": $("div.signinText:nth-child(3)").val(),
+				"check": "1"
+		        },
+		        dataType: "json",
+			success: function(data){
+			//var obj = jQuery.parseJSON(data);
+			// data is already a JS object. No need to parse
+			$("#signupboxTop").html("Welcome " + data.name);
+			alert(data.name);
+			 }
+		}); 
+	}
+

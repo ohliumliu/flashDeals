@@ -1,0 +1,4 @@
+/usr/bin/ruby2.1 extconf.rb
+mkmf.rb can't find header files for ruby at /usr/lib/ruby/include/ruby.h
+
+extconf failed, exit code 1

@@ -7,11 +7,11 @@
 			</div>
 			<div class="signupboxContainer">
 			  <div id="signupboxBody">
-			    <form action="/user/signin" method="post" data-remote="true">
+			    <form id="signinform" onsubmit="signin()">
 			  	<div class="signinText">Username:</div>
 			  	<div><input class="signinInput" name="username" type="text"/></div>
 			  	<div class="signinText">Password:</div>
-			  	<div><input class="signinInput" name="password" type="password"/></div>
+			  	<div><input id="signinpassword" class="signinInput" name="password" type="password"/></div>
 			  	<div id="signinButtons">
 			  	<input id="signinButton" type="submit" value="Signin!"/>
 			  	<a href="/user/signup"><input id="signupButton" type="button" value="Signup!"/></a>
