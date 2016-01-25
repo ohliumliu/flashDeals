@@ -146,6 +146,7 @@
 	}
 	
 	function showAllAlerts(alerts){
+		$("#allAlerts").html("");	
 		for (var i = 0; i<5; i++){
 			var $alertItem = $('<span/>', {
         			text: alerts[i].content,
@@ -155,13 +156,26 @@
         			text: 'Delete',
         			click: deleteFactory(alerts[i])
     			});
-			
 			$("#allAlerts").append("<br>").append($alertItem).append("<br>").append($deleteButton);
 		}
 	}
 
 	function deleteFactory(alertItem){
 		return function(){
-			alert(alertItem.content);
+		
+		$.ajax({
+			 type: "POST",
+			 beforeSend: function(xhr)  {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+			 url: "/coupons/delete_deal.json",
+			 data: {
+				"id": alertItem.id,
+		        },
+		        dataType: "json",
+			success: function(data){
+			//var obj = jQuery.parseJSON(data);
+			// data is already a JS object. No need to parse
+			showAllAlerts(data.alerts);
+			}
+		}); 
 		}
 	}

@@ -11,7 +11,11 @@ class CouponsController < ApplicationController
   end
 
   def delete_deal
-    deal = Coupon.find(params[id])
+    deal = Coupon.find(params[:id])
     deal.delete
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: {alerts: Coupon.all}}
+    end
   end
 end
