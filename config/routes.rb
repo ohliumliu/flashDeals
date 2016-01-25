@@ -5,6 +5,7 @@ FlashDeals::Application.routes.draw do
   post "user/signup" => "user#create"
   post "user/signin" # this is equivalent to the following?
   		     # post 'users/signup' => 'User#signup'
+  get "/user/signin"
   get "user/signout" 
 
   #resources :merchants
@@ -18,7 +19,6 @@ FlashDeals::Application.routes.draw do
   #resources :products
 
 
-  root to: 'Show#show'
   get 'catalogs/:catalog_id' => 'Show#show'
   get 'merchants/:merchant_id' => 'Show#show'
   get 'show/search' => 'show#show'
@@ -28,6 +28,7 @@ FlashDeals::Application.routes.draw do
   #get 'merchants' => 'Merchants#index'
   post 'coupons/submit_deal(.:format)' => 'Coupons#submit_deal'
   get 'coupons/submit_deal(.:format)' => 'Coupons#submit_deal'
+  root to: 'Show#show'
 
 
   # The priority is based upon order of creation:

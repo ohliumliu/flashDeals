@@ -19,17 +19,20 @@ class UserController < ApplicationController
 
   def signin
     @products = Product.all
-    @user = User.where(:name => params[:username]).first
-    if (@user = User.where(:name => params[:username]).first) && Digest::SHA1.hexdigest(params[:password]) == @user.password
+    if (@user = User.where(:name => params[:username]).first) && (Digest::SHA1.hexdigest(params[:password]) == @user.password)
       session[:user_id] = @user.id
       flash[:success] = session[:user_id] 
 
       respond_to do |format|
-        #format.html
-        format.json {render json: @user}
+        format.html
+        format.json {render :json => {user: @user, status: :signin}}
       end
 
     else
+      respond_to do |format|
+        format.html
+        format.json {render :json => {status: :fail}}
+      end
       #redirect_to action: "signup", :flash => {:error => "I don't know you"} 
     end
 

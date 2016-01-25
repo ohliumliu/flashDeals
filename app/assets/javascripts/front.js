@@ -115,12 +115,12 @@
 		}); 		
 	}
 
-	function signin(){
-		 alert("signin");
+	function signin( ){
+		 //alert("signin");
 		 $.ajax({
 			 type: "POST",
 			 beforeSend: function(xhr)  {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-			 url: "/user/signin",
+			 url: "/user/signin.json",
 			 data: {
 				"username": $("#signupboxBody > form:nth-child(1) > div:nth-child(2) > input:nth-child(1)").val(),
 				"password": $("#signinpassword").val(),
@@ -132,9 +132,12 @@
 			success: function(data){
 			//var obj = jQuery.parseJSON(data);
 			// data is already a JS object. No need to parse
-			$("#signupboxTop").html("Welcome " + data.name);
-			alert(data.name);
+			if (data.status === "signin") $("#signupboxTop").html("Welcome " + data.user.name);
+			else if (data.status === "fail")
+			$("#signupboxTop").html("Wrong Password/Username");
+			//alert(data.name);
 			 }
 		}); 
+		return false;
 	}
 

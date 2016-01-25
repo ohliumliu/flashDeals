@@ -7,7 +7,7 @@
 			</div>
 			<div class="signupboxContainer">
 			  <div id="signupboxBody">
-			    <form id="signinform" onsubmit="signin()">
+			    <form id="signinform" action="/user/signin" onsubmit="return signin()">
 			  	<div class="signinText">Username:</div>
 			  	<div><input class="signinInput" name="username" type="text"/></div>
 			  	<div class="signinText">Password:</div>
@@ -17,7 +17,7 @@
 			  	<a href="/user/signup"><input id="signupButton" type="button" value="Signup!"/></a>
 				<input type="hidden" name="check" value="1"/>
 			  	</div>
-			  	</form>
+			   </form>
 			  </div>
 			</div>
 			
