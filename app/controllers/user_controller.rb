@@ -19,13 +19,14 @@ class UserController < ApplicationController
 
   def signin
     @products = Product.all
+    @deals = Coupon.all
     if (@user = User.where(:name => params[:username]).first) && (Digest::SHA1.hexdigest(params[:password]) == @user.password)
       session[:user_id] = @user.id
       flash[:success] = session[:user_id] 
 
       respond_to do |format|
         format.html
-        format.json {render :json => {user: @user, status: :signin}}
+        format.json {render :json => {user: @user, alerts: @deals, status: :signin}}
       end
 
     else

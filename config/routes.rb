@@ -27,6 +27,7 @@ FlashDeals::Application.routes.draw do
   get 'merchants' => 'Show#list_merchants'
   #get 'merchants' => 'Merchants#index'
   post 'coupons/submit_deal(.:format)' => 'Coupons#submit_deal'
+  post 'coupons/delete_deal(.:format)' => 'Coupons#delete_deal'
   get 'coupons/submit_deal(.:format)' => 'Coupons#submit_deal'
   root to: 'Show#show'
 

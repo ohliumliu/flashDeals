@@ -18,7 +18,29 @@
 				<input type="hidden" name="check" value="1"/>
 			  	</div>
 			   </form>
+
 			  </div>
+			<div id="profileBody" style="display:none">
+    				<a href="http://www.dealsoutlet.net/member/profile" rel="nofollow">Update Profile</a>
+    				<br>
+    				<a href="/user/signout" rel="nofollow">Sign out</a>
+    				<a href="/user/signup" rel="nofollow">Sign up</a>
+    				<br>
+    				<br> Setup Deal Alert <br>
+  				<input id="alertKw" type="text" onblur="if(this.value=='') { this.value='Enter Keywords';}" onfocus="if(this.value=='Enter Keywords') this.value='';" value="Enter Keywords" name="alertKw" size="11">
+  				<input type="button" value="Submit" onclick="addAlert()">
+  				<br>
+  				<br>
+      				<b>Existing alerts</b>
+    				<div id="allAlerts">
+      				<br>
+      				<span id="alertList">computer</span>
+      				<span>
+        			<input type="button" onclick="deleteAlert(95)" value="delete">
+      				</span>
+			        </div>
+  			</div>
+
 			</div>
 			
 			<div class="signupboxHorizontal">

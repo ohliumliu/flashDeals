@@ -132,12 +132,36 @@
 			success: function(data){
 			//var obj = jQuery.parseJSON(data);
 			// data is already a JS object. No need to parse
-			if (data.status === "signin") $("#signupboxTop").html("Welcome " + data.user.name);
-			else if (data.status === "fail")
+			if (data.status === "signin") {
+				$("#signupboxTop").html("Welcome " + data.user.name);
+			        $("#signupboxBody").hide();
+			        $("#profileBody").show();
+				showAllAlerts(data.alerts);
+			}else if (data.status === "fail")
 			$("#signupboxTop").html("Wrong Password/Username");
 			//alert(data.name);
 			 }
 		}); 
 		return false;
 	}
+	
+	function showAllAlerts(alerts){
+		for (var i = 0; i<5; i++){
+			var $alertItem = $('<span/>', {
+        			text: alerts[i].content,
+        			id: 'alert'+alerts[i].id
+    			});
+			var $deleteButton = $('<button/>', {
+        			text: 'Delete',
+        			click: deleteFactory(alerts[i])
+    			});
+			
+			$("#allAlerts").append("<br>").append($alertItem).append("<br>").append($deleteButton);
+		}
+	}
 
+	function deleteFactory(alertItem){
+		return function(){
+			alert(alertItem.content);
+		}
+	}

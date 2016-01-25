@@ -8,6 +8,10 @@ class CouponsController < ApplicationController
       format.html # index.html.erb
       format.text { render text: "Thank you for submitting a deal" }
     end
+  end
 
+  def delete_deal
+    deal = Coupon.find(params[id])
+    deal.delete
   end
 end
