@@ -19,12 +19,11 @@
 		}
 		 $.ajax({
 			 type: "POST",
-			 url: "/coupon/add-alert",
+			 url: "/alerts/create.json",
 			 data: "alertKw=" + $("#alertKw").val(),
 			 success: function(data){
-//			 	$("#inputAlert").html("");
-			 	showAlert();
-			 	//$("#inputAlert").append(data);
+			 	showAllAlerts(data.alerts);
+ 				
 			 }
 		}); 		
 	}
@@ -147,7 +146,7 @@
 	
 	function showAllAlerts(alerts){
 		$("#allAlerts").html("");	
-		for (var i = 0; i<5; i++){
+		for (var i = 0; i<alerts.length; i++){
 			var $alertItem = $('<span/>', {
         			text: alerts[i].content,
         			id: 'alert'+alerts[i].id
@@ -166,7 +165,7 @@
 		$.ajax({
 			 type: "POST",
 			 beforeSend: function(xhr)  {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-			 url: "/coupons/delete_deal.json",
+			 url: "/alerts/delete.json",
 			 data: {
 				"id": alertItem.id,
 		        },
